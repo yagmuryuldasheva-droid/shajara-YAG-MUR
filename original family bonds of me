@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Family Tree</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 35px 20px;
+  background: #f7f3ed;
+  color: #493b30;
+  font-family: Georgia, serif;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: normal;
+  letter-spacing: 3px;
+}
+
+.subtitle {
+  color: #927d69;
+  font-style: italic;
+}
+
+h2 {
+  text-align: center;
+  font-weight: normal;
+  letter-spacing: 2px;
+}
+
+h3 {
+  font-weight: normal;
+  color: #806b56;
+}
+
+.tree-section {
+  margin: 50px auto;
+  max-width: 1200px;
+}
+
+.branch-title {
+  text-align: center;
+  padding: 15px;
+  background: #e9ded0;
+  border: 1px solid #cdb9a2;
+  border-radius: 12px;
+  letter-spacing: 2px;
+  font-size: 22px;
+}
+
+.tree-scroll {
+  overflow-x: auto;
+  padding: 25px 5px 40px;
+}
+
+.tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: max-content;
+  padding: 10px 20px;
+}
+
+.couple {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0;
+  position: relative;
+}
+
+.person {
+  width: 175px;
+  min-height: 75px;
+  padding: 12px 8px;
+  margin: 0 5px;
+  text-align: center;
+  background: #fffdf9;
+  border: 1px solid #cdb9a2;
+  border-radius: 9px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.person strong {
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.person small {
+  margin-top: 6px;
+  font-size: 11px;
+  color: #927d69;
+}
+
+.spouse-link {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  color: #ad8070;
+}
+
+.connector {
+  width: 2px;
+  height: 35px;
+  background: #b69d84;
+  margin: auto;
+}
+
+.children-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  padding-top: 35px;
+  gap: 10px;
+}
+
+.children-row::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 18px;
+  width: 2px;
+  background: #b69d84;
+}
+
+.child-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 18px;
+}
+
+.child-group::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 18px;
+  width: 2px;
+  background: #b69d84;
+}
+
+.child-group:not(:first-child)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 50%;
+  width: calc(100% + 10px);
+  height: 2px;
+  background: #b69d84;
+  z-index: 0;
+}
+
+.child-group .person {
+  margin: 0 5px;
+}
+
+.descendants {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.descendants .connector {
+  height: 22px;
+}
+
+.descendants .person {
+  background: #f3eae0;
+  min-height: 55px;
+}
+
+.tree-note {
+  text-align: center;
+  color: #927d69;
+  font-style: italic;
+  margin: 25px 0;
+}
+
+.my-family {
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+  background: #eee5d9;
+  border: 1px solid #cdb9a2;
+  border-radius: 15px;
+  padding: 25px;
+}
+
+.my-family .couple {
+  margin: 20px 0;
+}
+
+footer {
+  text-align: center;
+  color: #927d69;
+  font-style: italic;
+  padding: 30px;
+}
+
+@media(max-width: 600px) {
+  h1 { font-size: 30px; }
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+  <h1>My Family Tree</h1>
+  <p class="subtitle">Three Generations of My Family</p>
+</header>
+
+<!-- PATERNAL FAMILY -->
+
+<section class="tree-section">
+<div class="branch-title">PATERNAL FAMILY</div>
+
+<div class="tree-scroll">
+<div class="tree">
+
+<h3>First Generation – Grandparents</h3>
+
+<div class="couple">
+  <div class="person">
+    <strong>Juma Aygün †</strong>
+    <small>Grandfather · Deceased</small>
+  </div>
+  <span class="spouse-link">♥</span>
+  <div class="person">
+    <strong>Saliha Aygün †</strong>
+    <small>Grandmother · Deceased</small>
+  </div>
+</div>
+
+<div class="connector"></div>
+
+<h3>Second Generation – Their Children</h3>
+
+<div class="children-row">
+
+  <div class="child-group">
+    <div class="person"><strong>Fatma Aygün</strong></div>
+    <div class="descendants">
+      <div class="person"><strong>Shaban</strong><small>Husband</small></div>
+      <div class="connector"></div>
+      <div class="person">Büket</div>
+      <div class="person">Zeliha</div>
+      <div class="person">Gamze</div>
+      <div class="person">Hasan</div>
+    </div>
+  </div>
+
+  <div class="child-group">
+    <div class="person"><strong>Hasan Aygün</strong><small>My Father · 15 November 1964</small></div>
+  </div>
+
+  <div class="child-group">
+    <div class="person"><strong>Davut Aygün</strong></div>
+    <div class="descendants">
+      <div class="person">Gonul<small>Wife</small></div>
+      <div class="connector"></div>
+      <div class="person">Hamza</div>
+    </div>
+  </div>
+
+  <div class="child-group">
+    <div class="person"><strong>Juma Aygün</strong></div>
+    <div class="descendants">
+      <div class="person">Gul<small>Wife</small></div>
+      <div class="connector"></div>
+      <div class="person">İbrahim</div>
+      <div class="person">Aynur</div>
+    </div>
+  </div>
+
+  <div class="child-group">
+    <div class="person"><strong>Nedim Aygün</strong><small>15 January 1975</small></div>
+    <div class="descendants">
+      <div class="person">Shohida Yuldasheva<small>Wife · Maternal family</small></div>
+      <div class="connector"></div>
+      <div class="person">Sedat</div>
+      <div class="person">Kamile</div>
+      <div class="person">Vedat</div>
+      <div class="person">Soner</div>
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+</section>
+
+<!-- MATERNAL FAMILY -->
+
+<section class="tree-section">
+<div class="branch-title">MATERNAL FAMILY</div>
+
+<div class="tree-scroll">
+<div class="tree">
+
+<h3>First Generation – Grandparents</h3>
+
+<div class="couple">
+  <div class="person">
+    <strong>Sergey Yuldasheva †</strong>
+    <small>Grandfather · 1951–2004</small>
+  </div>
+  <span class="spouse-link">♥</span>
+  <div class="person">
+    <strong>Muhabbat Ortiqõva †</strong>
+    <small>Grandmother · 1957–2014</small>
+  </div>
+</div>
+
+<div class="connector"></div>
+
+<h3>Second Generation – Their Children</h3>
+
+<div class="children-row">
+
+  <div class="child-group">
+    <div class="person"><strong>Umida Yuldasheva</strong><small>My Mother · 14 July 1976</small></div>
+  </div>
+
+  <div class="child-group">
+    <div class="person"><strong>Shohida Yuldasheva</strong><small>February 1978</small></div>
+    <div class="descendants">
+      <div class="person">Nedim Aygün<small>Husband · Paternal family</small></div>
+      <div class="connector"></div>
+      <div class="person">Sedat</div>
+      <div class="person">Kamile</div>
+      <div class="person">Vedat</div>
+      <div class="person">Soner</div>
+    </div>
+  </div>
+
+  <div class="child-group">
+    <div class="person"><strong>Shuhrat Yuldasheva</strong><small>25 September 1979</small></div>
+    <div class="descendants">
+      <div class="connector"></div>
+      <div class="person">Elnora</div>
+    </div>
+  </div>
+
+  <div class="child-group">
+    <div class="person"><strong>Farhod Yuldasheva</strong><small>28 December 1980</small></div>
+  </div>
+
+  <div class="child-group">
+    <div class="person"><strong>Komola Yuldasheva</strong><small>4 April 1987</small></div>
+    <div class="descendants">
+      <div class="person">Sherzod Roziyev<small>Husband</small></div>
+      <div class="connector"></div>
+      <div class="person">İymona</div>
+    </div>
+  </div>
+
+  <div class="child-group">
+    <div class="person"><strong>Axmed Yuldasheva</strong><small>16 September 1996</small></div>
+    <div class="descendants">
+      <div class="person">Ozoda Yuldasheva<small>Wife</small></div>
+      <div class="connector"></div>
+      <div class="person">Mustafo</div>
+      <div class="person">Soliha</div>
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+</section>
+
+<!-- IMMEDIATE FAMILY -->
+
+<section class="my-family">
+
+<h2>My Immediate Family</h2>
+
+<div class="couple">
+  <div class="person">
+    <strong>Hasan Aygün</strong>
+    <small>Father</small>
+  </div>
+  <span class="spouse-link">♥</span>
+  <div class="person">
+    <strong>Umida Yuldasheva</strong>
+    <small>Mother · 14 July 1976</small>
+  </div>
+</div>
+
+<div class="connector"></div>
+
+<div class="person" style="margin:auto;">
+  <strong>Yağmur</strong>
+  <small>Me</small>
+</div>
+
+</section>
+
+<footer>
+Family is where our story begins.
+</footer>
+
+</body>
+</html>
